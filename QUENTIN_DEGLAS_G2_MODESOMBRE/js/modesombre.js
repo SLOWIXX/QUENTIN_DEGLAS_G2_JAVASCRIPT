@@ -8,8 +8,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
             console.log('Mode sombre désactivé');
         }
     });   
-    if (!document.body.classList.contains('dark-mode')) {
-        
-        document.body.classList.add('light-mode');
-    }
 });

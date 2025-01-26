@@ -1,14 +1,10 @@
-window.onload = () => {
-    const intro = document.getElementById("intro");
-};
-
 document.addEventListener("DOMContentLoaded", () => {
     function isValidEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); 
     }
 
     function validateInput(input, condition, validMessage, invalidMessage, messageElement) {
-        if (condition(input.value.trim())) {   // trim = enlever les espaces debut et fin
+        if (condition(input.value.trim())) { 
             input.classList.remove("error");
             input.classList.add("valid");
             messageElement.textContent = validMessage;
@@ -22,16 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         }
     }
-
-    const saveUser = (pseudo, email, password) => {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        if (users.some((user) => user.email === email)) {
-            return false;
-        }
-        users.push({ pseudo, email, password, favoris: [] });
-        localStorage.setItem("users", JSON.stringify(users));
-        return true;
-    };
 
     const registerUser = () => {
         const pseudoInput = document.getElementById("usernameRegister");
@@ -67,13 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         if (isPseudoValid && isEmailValid && isPasswordValid) {
-            if (saveUser(pseudoInput.value, emailInput.value, passwordInput.value)) {
-                usernameMessage.textContent = "Inscription réussie !";
-                usernameMessage.className = "valid";
-            } else {
-                emailMessage.textContent = "L'utilisateur existe déjà.";
-                emailMessage.className = "invalid";
-            }
+            console.log("Inscription réussie !");
         }
     };
 
